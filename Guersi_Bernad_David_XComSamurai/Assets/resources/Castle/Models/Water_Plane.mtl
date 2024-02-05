@@ -1,0 +1,5 @@
+newmtl ProBuilder_Default_URP
+map_Kd C:/src/shader-graph-course/Assets/s/com.unity.probuilder/Content/Resources/Textures/GridBox_Default.png
+Kd 1.0 1.0 1.0
+d 1.0
+
