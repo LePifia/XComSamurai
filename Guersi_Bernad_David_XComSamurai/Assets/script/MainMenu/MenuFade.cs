@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class MenuFade : MonoBehaviour
 {
+    [Header("Menu Fade")]
+    [Space]
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] GameObject menu;
 

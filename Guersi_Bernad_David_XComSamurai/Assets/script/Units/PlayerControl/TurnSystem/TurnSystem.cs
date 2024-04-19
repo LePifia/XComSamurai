@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TurnSystem : MonoBehaviour
 {
-    public static TurnSystem instance { get; private set; }
+    public static TurnSystem Instance { get; private set; }
 
     public event EventHandler OnTurnChanged;
     private int turnNumber = 1;
@@ -14,12 +14,12 @@ public class TurnSystem : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
         }
-        instance = this;
+        Instance = this;
     }
 
     public void NextTurn()

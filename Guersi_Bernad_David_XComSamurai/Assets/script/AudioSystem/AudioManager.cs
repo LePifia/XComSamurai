@@ -9,12 +9,16 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
 
+    [Header("AudioSources")]
+    [Space]
+
     [SerializeField] AudioSource audioSourceMusic;
- 
     [SerializeField] AudioSource audioSourceFX;
     [SerializeField] AudioSource audioSourceAmbience;
+    
+    [Space]
 
-    [Header("Music")]
+    [Header("Music Options")]
     [Space]
     [SerializeField] AudioClip [] musicClips;
 
@@ -24,7 +28,7 @@ public class AudioManager : MonoBehaviour
 
 
 
-    [Header("FX")]
+    [Header("FX Options")]
     [Space]
 
     [SerializeField] AudioClip kabukiShout;
@@ -32,7 +36,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip shootingClip;
     [SerializeField] AudioClip[] hitSounds;
 
-    [Header("Ambience")]
+    [Header("Ambience Options")]
     [Space]
 
     [SerializeField] AudioClip ambienceSound;
@@ -120,52 +124,5 @@ public class AudioManager : MonoBehaviour
         yield return new WaitForSeconds (3f);
         audioSourceMusic.volume = 1;
     }
-
-    
-    /*
-private void audioMixerVolumeMaster()
-{
-   audioMixer.SetFloat("Master", audioMixerVolume);
-}
-
-private void audioMixerVolumeMusic()
-{
-   audioMixer.SetFloat("Music", audioMixerVolume);
-}
-
-private void audioMixerVolumeFX()
-{
-   audioMixer.SetFloat("FX", audioMixerVolume);
-}
-
-private void audioMixerVolumeAmbient()
-{
-   audioMixer.SetFloat("Ambient", audioMixerVolume);
-}
-
-private void PlayTrack()
-{
-   m_AudioSource.Play();
-}
-
-private void PlayClip()
-{
-   m_AudioSource.PlayOneShot(m_Clip, volume);
-}
-
-private void StopAudio()
-{
-   if (m_AudioSource.isPlaying)
-   {
-       m_AudioSource.PlayOneShot(m_Clip, volume);
-   }
-   else
-   {
-       m_AudioSource.Stop();
-       m_AudioSource.Pause();
-       m_AudioSource.PlayDelayed(3f);
-   }
-}
-*/
 
 }

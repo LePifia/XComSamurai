@@ -5,14 +5,19 @@ using UnityEngine;
 
 public class GrenadeAction : BaseAction
 {
+    public event EventHandler OnGrenadeLaunch;
 
+    [Header("GrenadeActionData")]
+    [Space]
 
     [SerializeField] private Transform grenadeProjectilePrefab;
     [SerializeField] Sprite grenadeIcon;
     [SerializeField] string  actionGranadeName;
     [SerializeField] string  actionGranadeDescription;
 
-    private int maxThrowDistance = 7;
+    private readonly int maxThrowDistance = 7;
+
+
 
     private void Update()
     {
@@ -40,7 +45,7 @@ public class GrenadeAction : BaseAction
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
-        List<GridPosition> validGridPositionList = new List<GridPosition>();
+        List<GridPosition> validGridPositionList = new();
 
         GridPosition unitGridPosition = unit.GetGridPosition();
 
@@ -48,7 +53,7 @@ public class GrenadeAction : BaseAction
         {
             for (int z = -maxThrowDistance; z <= maxThrowDistance; z++)
             {
-                GridPosition offsetGridPosition = new GridPosition(x, z, 0);
+                GridPosition offsetGridPosition = new(x, z, 0);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
                 if (!LevelGrid.instance.IsValidGridPosition(testGridPosition))
@@ -74,6 +79,7 @@ public class GrenadeAction : BaseAction
         Transform grenadeProjectileTransform = Instantiate(grenadeProjectilePrefab, unit.GetWorldPosition(), Quaternion.identity);
         GrenadeProjectile grenadeProjectile = grenadeProjectileTransform.GetComponent<GrenadeProjectile>();
         grenadeProjectile.Setup(gridPosition, OnGrenadeBehaviourComplete);
+        OnGrenadeLaunch?.Invoke(this, EventArgs.Empty);
 
         ActionStart(onActionComplete);
     }

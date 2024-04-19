@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class LevelScripting : MonoBehaviour
 {
-
+    [Header("Level Scripting")]
+    [Space]
     [SerializeField] private List<GameObject> hider1List;
     [SerializeField] private List<GameObject> enemy1List;
     [SerializeField] private Door door1;

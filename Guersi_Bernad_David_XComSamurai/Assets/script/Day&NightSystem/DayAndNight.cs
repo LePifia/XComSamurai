@@ -5,16 +5,23 @@ using UnityEngine;
 public class DayAndNight : MonoBehaviour
 {
     [Header("Gradients")]
+    [Space]
     [SerializeField]  Gradient fogGradient;
     [SerializeField]  Gradient ambientGradient;
     [SerializeField]  Gradient directionLightGradient;
     [SerializeField]  Gradient skyboxTintGradient;
 
+    [Space]
+
     [Header("Enviromental Assets")]
+    [Space]
     [SerializeField]  Light directionalLight;
     [SerializeField]  Material skyboxMaterial;
 
+    [Space]
+
     [Header("Variables")]
+    [Space]
     [SerializeField]  float dayDurationInSeconds = 60f;
     [SerializeField]  float rotationSpeed = 1f;
 

@@ -5,9 +5,20 @@ using UnityEngine;
 
 public class HealAction : BaseAction
 {
+    public event EventHandler OnHealAction;
+
+    [Header("HealActionData")]
+    [Space]
+
     [SerializeField] Sprite healIcon;
     [SerializeField] string actionName;
     [SerializeField] string actionDescription;
+
+    [Space]
+    [SerializeField] int actionCost = 1;
+
+    private float timer = 0;
+
 
     public override Sprite ActionImage => healIcon;
 
@@ -15,18 +26,56 @@ public class HealAction : BaseAction
 
     public override string ActionDescription => actionDescription;
 
+    private void Update()
+    {
+        if (!isActive)
+        {
+            return;
+        }
+
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        if (timer <= 0)
+        {
+            ActionComplete();
+            timer = 0;
+        }
+            
+        
+    }
+
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
-        throw new System.NotImplementedException();
+        return new EnemyAIAction
+        {
+            gridPosition = gridPosition,
+            actionValue = 0,
+        };
     }
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
-        throw new System.NotImplementedException();
+        GridPosition unitGridPosition = unit.GetGridPosition();
+
+        return new List<GridPosition>
+        {
+            unitGridPosition
+        };
     }
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        throw new NotImplementedException();
+        ActionStart(onActionComplete);
+        timer = 2;
+        Unit targetUnit = LevelGrid.instance.GetUnitOnGridPosition(gridPosition);
+        OnHealAction?.Invoke(this, EventArgs.Empty);
+        targetUnit.HealUp();
+    }
+
+    public override int GetActionPointsCost()
+    {
+        return actionCost;
     }
 }

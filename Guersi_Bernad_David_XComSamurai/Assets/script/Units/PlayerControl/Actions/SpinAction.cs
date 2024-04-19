@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SpinAction : BaseAction
 {
+    [Header("WasteTimeData")]
+    [Space]
     private float totalSpinAmount;
     [SerializeField] int actionCost = 1;
     [SerializeField] Sprite spinIcon;

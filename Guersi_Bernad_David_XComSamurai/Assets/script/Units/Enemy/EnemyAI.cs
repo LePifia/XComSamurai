@@ -22,12 +22,12 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        TurnSystem.instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
     }
 
     private void Update()
     {
-        if (TurnSystem.instance.IsPlayerTurn())
+        if (TurnSystem.Instance.IsPlayerTurn())
         {
             return;
         }
@@ -47,7 +47,7 @@ public class EnemyAI : MonoBehaviour
                     else
                     {
                         // No more enemies have actions they can take, end enemy turn
-                        TurnSystem.instance.NextTurn();
+                        TurnSystem.Instance.NextTurn();
                     }
                 }
                 break;
@@ -59,7 +59,7 @@ public class EnemyAI : MonoBehaviour
 
     private void SetStateTakingTurn()
     {
-        if (!TurnSystem.instance.IsPlayerTurn())
+        if (!TurnSystem.Instance.IsPlayerTurn())
         {
             state = State.TakingTurn;
             timer = 0.5f;
@@ -69,7 +69,7 @@ public class EnemyAI : MonoBehaviour
 
     private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
     {
-        if (!TurnSystem.instance.IsPlayerTurn())
+        if (!TurnSystem.Instance.IsPlayerTurn())
         {
             state = State.TakingTurn;
             timer = 0.7f;

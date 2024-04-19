@@ -8,7 +8,7 @@ public class SwordAction : BaseAction
 
     public static event EventHandler OnAnySwordHit;
 
-    [SerializeField] Sprite swordIcon;
+    
 
     public event EventHandler OnSwordActionStarted;
     public event EventHandler OnSwordActionCompleted;
@@ -26,7 +26,10 @@ public class SwordAction : BaseAction
         SwingingSwordAfterHit,
     }
 
-    private int maxSwordDistance = 1;
+    [Header("ShootActionData")]
+    [Space]
+    [SerializeField] Sprite swordIcon;
+    private readonly int maxSwordDistance = 1;
     [SerializeField] int damageAmount = 6;
     private State state;
     private float stateTimer;
@@ -92,13 +95,13 @@ public class SwordAction : BaseAction
         return new EnemyAIAction
         {
             gridPosition = gridPosition,
-            actionValue = 100,
+            actionValue = 300,
         };
     }
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
-        List<GridPosition> validGridPositionList = new List<GridPosition>();
+        List<GridPosition> validGridPositionList = new();
 
         GridPosition unitGridPosition = unit.GetGridPosition();
 
@@ -106,7 +109,7 @@ public class SwordAction : BaseAction
         {
             for (int z = -maxSwordDistance; z <= maxSwordDistance; z++)
             {
-                GridPosition offsetGridPosition = new GridPosition(x, z, 0);
+                GridPosition offsetGridPosition = new(x, z, 0);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
                 if (!LevelGrid.instance.IsValidGridPosition(testGridPosition))

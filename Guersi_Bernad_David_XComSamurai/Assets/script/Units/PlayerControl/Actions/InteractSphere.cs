@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class InteractSphere : MonoBehaviour, IInteractable
 {
-
+    [Header("InteractSphereData")]
+    [Space]
     [SerializeField] private Material greenMaterial;
     [SerializeField] private Material redMaterial;
     [SerializeField] private MeshRenderer meshRenderer;

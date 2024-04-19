@@ -441,7 +441,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ragdollPrefab
       value: 
-      objectReference: {fileID: 7126547971785708760, guid: b2da71e44f93bd747988384943119faf,
+      objectReference: {fileID: 6666121330367629250, guid: 04f7570a58d9f6c47af7464cb51f0eb4,
         type: 3}
     - target: {fileID: 7293138314736257959, guid: fe7bec9be15a5d743bee8c112f494307,
         type: 3}

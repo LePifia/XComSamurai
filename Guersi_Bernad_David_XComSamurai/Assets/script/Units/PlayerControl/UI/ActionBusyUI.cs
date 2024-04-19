@@ -6,7 +6,7 @@ public class ActionBusyUI : MonoBehaviour
 {
     private void Start()
     {
-        UnitActionSystem.instance.OnBusyChange += UnitActionSystem_OnBusyChange;
+        UnitActionSystem.Instance.OnBusyChange += UnitActionSystem_OnBusyChange;
         this.gameObject.SetActive(false);
     }
     private void Show()

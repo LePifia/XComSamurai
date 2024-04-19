@@ -104,7 +104,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _MossAcumulation: 56
-    - _MossAmount: 0.6
+    - _MossAmount: 0.74
     - _NoiseSize: -187.81
     - _NoiseStrenght: 0.24
     - _OcclusionStrength: 1

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-
     [SerializeField] private GameObject actionCameraGameObject;
 
     Vector3 cameraCharacterHeight;

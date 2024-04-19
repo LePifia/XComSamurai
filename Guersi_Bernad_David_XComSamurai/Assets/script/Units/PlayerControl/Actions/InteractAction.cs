@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class InteractAction : BaseAction
 {
+    [Header("InteractableActionData")]
+    [Space]
     [SerializeField] Sprite interactIcon;
     private int maxInteractDistance = 1;
     [SerializeField] string actionName;

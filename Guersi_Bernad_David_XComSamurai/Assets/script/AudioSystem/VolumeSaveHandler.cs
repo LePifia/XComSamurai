@@ -7,19 +7,31 @@ using UnityEngine.Audio;
 
 public class VolumeSaveHandler : MonoBehaviour
 {
+    
     public static VolumeSaveHandler instance { get; private set; }
+
+    [Header("VolumeHandlerInfo")]
+    [Space]
 
     [SerializeField] Slider volumeSliderMaster;
     [SerializeField] TextMeshProUGUI volumeTextMaster;
 
+    [Space]
+
     [SerializeField] Slider volumeSliderMusic;
     [SerializeField] TextMeshProUGUI volumeTextMusic;
+
+    [Space]
 
     [SerializeField] Slider volumeSliderFx;
     [SerializeField] TextMeshProUGUI volumeTextFX;
 
+    [Space]
+
     [SerializeField] Slider volumeSliderAmbience;
     [SerializeField] TextMeshProUGUI volumeTextAmbience;
+
+    [Space]
 
     [SerializeField] AudioMixer audioMixer;
 
@@ -62,7 +74,7 @@ public class VolumeSaveHandler : MonoBehaviour
 
     public void SetAmbienceVolume(float sliderValue)
     {
-        audioMixer.SetFloat("Ambience", Mathf.Log10(sliderValue) * 20);
+        audioMixer.SetFloat("Ambient", Mathf.Log10(sliderValue) * 20);
         volumeTextAmbience.text = sliderValue.ToString("0.0");
         SaveVolumeAmbience();
     }
@@ -90,7 +102,7 @@ public class VolumeSaveHandler : MonoBehaviour
     public void SaveVolumeAmbience()
     {
         float volumeValueAmbience = volumeSliderAmbience.value;
-        PlayerPrefs.SetFloat("Ambience", volumeValueAmbience);
+        PlayerPrefs.SetFloat("Ambient", volumeValueAmbience);
     }
 
     
@@ -110,9 +122,9 @@ public class VolumeSaveHandler : MonoBehaviour
         volumeSliderMaster.value = volumeValueFX;
         audioMixer.SetFloat("FX", volumeValueFX);
 
-        float volumeValueAmbience = PlayerPrefs.GetFloat("Ambience");
+        float volumeValueAmbience = PlayerPrefs.GetFloat("Ambient");
         volumeSliderMaster.value = volumeValueAmbience;
-        audioMixer.SetFloat("Ambience", volumeValueAmbience);
+        audioMixer.SetFloat("Ambient", volumeValueAmbience);
         
 
     }

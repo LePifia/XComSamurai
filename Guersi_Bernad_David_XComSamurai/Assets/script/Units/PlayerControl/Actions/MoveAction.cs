@@ -15,23 +15,27 @@ public class MoveAction : BaseAction
         public GridPosition targetGridPosition;
     }
 
+    [Header("MoveActionData")]
+    [Space]
 
     [SerializeField] Sprite moveIcon;
     [SerializeField] string actionName;
     [SerializeField] string actionDescription;
 
-    [SerializeField] private int maxMoveDistance = 4;
+    [Space]
 
+    [SerializeField] private int maxMoveDistance = 4;
     [SerializeField] GameObject smokeParticles;
+    [SerializeField] int actionCost = 1;
 
     private List<Vector3> positionList;
     private int currentPositionIndex;
 
     private bool isChangingFloors;
     private float differentFloorsSpeedTimer;
-    private float differentFloorsSpeedTimerMax = .5f;
+    private readonly float differentFloorsSpeedTimerMax = .5f;
 
-    [SerializeField] int actionCost = 1;
+    
     private Vector3 targetPosition;
     private Vector3 moveDirection;
 
@@ -142,7 +146,7 @@ public class MoveAction : BaseAction
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
-        List<GridPosition> validGridPositionList = new List<GridPosition>();
+        List<GridPosition> validGridPositionList = new();
 
         GridPosition unitGridPosition = unit.GetGridPosition();
 
@@ -153,7 +157,7 @@ public class MoveAction : BaseAction
 
                 for (int floor = -maxMoveDistance; floor <= maxMoveDistance; floor++)
                 {
-                    GridPosition offsetGridPosition = new GridPosition(x, z, floor);
+                    GridPosition offsetGridPosition = new(x, z, floor);
                     GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
                     if (!LevelGrid.instance.IsValidGridPosition(testGridPosition))

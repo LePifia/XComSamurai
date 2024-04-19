@@ -8,10 +8,23 @@ public class UnitManager : MonoBehaviour
 
     public static UnitManager Instance { get; private set; }
 
+    [Header("Unit Manager")]
+    [Space]
 
     [SerializeField] List<Unit> unitList;
+
+    [Space]
+
     [SerializeField] List<Unit> friendlyUnitList;
+
+    [Space]
+
     [SerializeField] List<Unit> enemyUnitList;
+
+    [Space]
+    [SerializeField] bool progressBarNeed;
+
+    [SerializeField] ProgressBar progressBar;
 
 
     private void Awake()
@@ -44,6 +57,7 @@ public class UnitManager : MonoBehaviour
         if (unit.IsEnemy())
         {
             enemyUnitList.Add(unit);
+            
         }
         else
         {
@@ -60,6 +74,11 @@ public class UnitManager : MonoBehaviour
         if (unit.IsEnemy())
         {
             enemyUnitList.Remove(unit);
+            if (progressBarNeed)
+            {
+                progressBar.SetCurrentNum();
+            }
+            
         }
         else
         {
@@ -81,5 +100,7 @@ public class UnitManager : MonoBehaviour
     {
         return enemyUnitList;
     }
+
+    
 
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FloorVisibility : MonoBehaviour
 {
+    [Header("Floor Visibility")]
+    [Space]
     [SerializeField] bool dynamicFloorPosition;
     [SerializeField] List<Renderer> ignoreRendererList;
 
@@ -37,7 +39,7 @@ public class FloorVisibility : MonoBehaviour
             floor = LevelGrid.instance.GetFloor(transform.position);
         }
 
-        float cameraHeight = CameraZoom.instance.GetCameraHeight();
+        float cameraHeight = CameraZoom.Instance.GetCameraHeight();
         
 
         bool showObject = cameraHeight > LevelGrid.Floor_Height * floor + floorHeightOffset;

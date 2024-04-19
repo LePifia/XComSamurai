@@ -8,7 +8,10 @@ public class Door : MonoBehaviour, IInteractable
     public static event EventHandler OnAnyDoorOpened;
     public event EventHandler OnDoorOpened;
 
-    [SerializeField] private bool isOpen;
+    [Header("Door")]
+    [Space]
+
+    [SerializeField] bool isOpen;
 
     private GridPosition gridPosition;
     private Animator animator;

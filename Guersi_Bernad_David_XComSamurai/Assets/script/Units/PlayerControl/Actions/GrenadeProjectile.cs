@@ -7,12 +7,18 @@ public class GrenadeProjectile : MonoBehaviour
 {
     public static event EventHandler OnAnyGrenadeExploded;
 
+
+    [Header("GrenadeProjectileData")]
+    [Space]
+
     [SerializeField] Transform ExplosionVFXPrefab;
     [SerializeField] TrailRenderer trailRenderer;
     [SerializeField] private AnimationCurve arcYAnimationCurve;
 
     private Vector3 targetPosition;
     private Action onGrenadeBehaviourComplete;
+
+    [Space]
 
     [SerializeField] int damageAmount = 1;
     private float totalDistance;

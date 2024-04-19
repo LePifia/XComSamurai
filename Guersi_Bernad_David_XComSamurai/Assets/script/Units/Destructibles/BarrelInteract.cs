@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BarrelInteract : MonoBehaviour, IInteractable
 {
+    [Header("Barrel Interactible")]
+    [Space]
 
     [SerializeField] private Transform barrelDestroyedPrefab;
     [SerializeField] private GameObject visualGameObject;

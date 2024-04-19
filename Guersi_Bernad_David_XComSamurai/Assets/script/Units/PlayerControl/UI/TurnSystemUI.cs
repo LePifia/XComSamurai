@@ -16,10 +16,10 @@ public class TurnSystemUI : MonoBehaviour
     {
         endTurnButton.onClick.AddListener(() =>    
         {
-            TurnSystem.instance.NextTurn();
+            TurnSystem.Instance.NextTurn();
         });
 
-        TurnSystem.instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
 
         UpdateTurnText();
         UpdateEnemyTurnVisual();
@@ -35,16 +35,16 @@ public class TurnSystemUI : MonoBehaviour
     private void UpdateTurnText()
     {
 
-        turnNumberText.text = "Turn: " + TurnSystem.instance.GetTurnNumber();
+        turnNumberText.text = "Turn: " + TurnSystem.Instance.GetTurnNumber();
     }
 
     private void UpdateEnemyTurnVisual()
     {
-        enemyVisualGameObject.SetActive(!TurnSystem.instance.IsPlayerTurn());
+        enemyVisualGameObject.SetActive(!TurnSystem.Instance.IsPlayerTurn());
     }
 
     private void UpdateEndTurnButtonVisibility()
     {
-        endTurnButton.gameObject.SetActive(TurnSystem.instance.IsPlayerTurn());
+        endTurnButton.gameObject.SetActive(TurnSystem.Instance.IsPlayerTurn());
     }
 }

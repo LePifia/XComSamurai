@@ -25,14 +25,14 @@ public class ActionButtonUI : MonoBehaviour
         actionDescription = baseAction.ActionDescription;
 
         button.onClick.AddListener(() => {
-            UnitActionSystem.instance.SetSelectedAction(baseAction);
+            UnitActionSystem.Instance.SetSelectedAction(baseAction);
         });
 
     }
 
     public void UpdateSelectedVisual()
     {
-        BaseAction selectedBaseAction = UnitActionSystem.instance.GetSelectedAction();
+        BaseAction selectedBaseAction = UnitActionSystem.Instance.GetSelectedAction();
         selectedGameObject.SetActive(selectedBaseAction == baseAction);
     }
 

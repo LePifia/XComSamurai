@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class bulletProjectile : MonoBehaviour
 {
-    
+    [Header("Bullet Projectile")]
+    [Space]
 
     private Vector3 targetPosition;
 

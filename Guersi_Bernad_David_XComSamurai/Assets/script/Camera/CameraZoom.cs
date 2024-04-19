@@ -6,20 +6,25 @@ using Cinemachine;
 public class CameraZoom : MonoBehaviour
 {
     private const float minFollowOffset = 2f;
-    private const float maxFollowOffset = 21;
+    private const float maxFollowOffset = 25;
 
-    public static CameraZoom instance { get;set;}
+    public static CameraZoom Instance { get;set;}
+
+    [Header("Camera Zoom")]
+    [Space]
 
     [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
     private CinemachineTransposer cinemachineTransposer;
     private Vector3 targetFollowOffset;
+
+    [Space]
 
     [SerializeField] float zoomAmount = 1f;
     [SerializeField] float zoomSpeed = 5f;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
         cinemachineTransposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>();
         targetFollowOffset = cinemachineTransposer.m_FollowOffset;
     }

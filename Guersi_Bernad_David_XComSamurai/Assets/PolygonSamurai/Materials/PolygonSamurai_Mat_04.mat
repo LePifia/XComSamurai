@@ -87,7 +87,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AcumulationTolerance: 0.42
+    - _AcumulationTolerance: 0
     - _AlphaClip: 0
     - _AngleOffset: 0
     - _Blend: 0
@@ -111,9 +111,9 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _MossAcumulation: 137.94
-    - _MossAmount: 0.8
+    - _MossAmount: 1
     - _NoiseSize: 28.5
-    - _NoiseStrenght: 0.6
+    - _NoiseStrenght: 1
     - _NormalStrenght: 0.25
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -127,7 +127,7 @@ Material:
     - _Size: 0.1
     - _Smoothness: 0.2
     - _SmoothnessTextureChannel: 0
-    - _SnowHeight: 0.31
+    - _SnowHeight: 0
     - _SoftEdgeDistance: 0.17
     - _SparkleIntensity: 1
     - _SparkleScale: 512

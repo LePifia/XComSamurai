@@ -8,6 +8,8 @@ public class DestructibleCrate : MonoBehaviour
 
     public static event EventHandler OnAnyDestroyed;
 
+    [Header("Destructible")]
+    [Space]
     [SerializeField] Transform crateDestroyedPrefab;
 
     

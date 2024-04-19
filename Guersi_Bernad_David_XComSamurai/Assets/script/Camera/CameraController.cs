@@ -9,11 +9,15 @@ public class CameraController : MonoBehaviour
 
     private Vector3 rotationVector;
 
+    [Header("Camera Controller")]
+    [Space]
+
     [SerializeField] Transform BoundX;
     [SerializeField] Transform BoundX1;
     [SerializeField] Transform BoundZ;
     [SerializeField] Transform BoundZ1;
 
+    [Space]
 
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float rotationSpeed = 100f;

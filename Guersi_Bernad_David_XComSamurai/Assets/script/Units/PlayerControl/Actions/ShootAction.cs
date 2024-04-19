@@ -17,7 +17,8 @@ public class ShootAction : BaseAction
         public Unit shootingUnit;
     }
 
-    [SerializeField] int damageAmount = 3;
+
+   
 
     private enum State
     {
@@ -26,6 +27,9 @@ public class ShootAction : BaseAction
         Cooloff,
     }
 
+    [Header("ShootActionData")]
+    [Space]
+    [SerializeField] int damageAmount = 3;
     [SerializeField] LayerMask obstaclesLayerMask;
     private State state;
     [SerializeField] int maxShootDistance = 7;
@@ -33,6 +37,8 @@ public class ShootAction : BaseAction
     private Unit targetUnit;
     private bool canShootBullet;
     [SerializeField] int actionCost = 1;
+
+    [Space]
 
     [SerializeField] Sprite shootIcon;
     [SerializeField] string actionName;
@@ -130,7 +136,7 @@ public class ShootAction : BaseAction
 
     public List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
     {
-        List<GridPosition> validGridPositionList = new List<GridPosition>();
+        List<GridPosition> validGridPositionList = new();
 
         for (int x = -maxShootDistance; x <= maxShootDistance; x++)
         {
@@ -138,7 +144,7 @@ public class ShootAction : BaseAction
             {
                 for (int floor = -maxShootDistance; floor <= maxShootDistance; floor++)
                 {
-                    GridPosition offsetGridPosition = new GridPosition(x, z, floor);
+                    GridPosition offsetGridPosition = new(x, z, floor);
                     GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
                     if (!LevelGrid.instance.IsValidGridPosition(testGridPosition))
